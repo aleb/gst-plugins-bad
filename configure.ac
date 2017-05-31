@@ -488,6 +488,7 @@ AG_GST_CHECK_PLUGIN(rawparse)
 AG_GST_CHECK_PLUGIN(removesilence)
 AG_GST_CHECK_PLUGIN(sdp)
 AG_GST_CHECK_PLUGIN(segmentclip)
+AG_GST_CHECK_PLUGIN(imagesequencesrc)
 AG_GST_CHECK_PLUGIN(siren)
 AG_GST_CHECK_PLUGIN(smooth)
 AG_GST_CHECK_PLUGIN(speed)
@@ -3626,6 +3627,7 @@ gst/rawparse/Makefile
 gst/removesilence/Makefile
 gst/sdp/Makefile
 gst/segmentclip/Makefile
+gst/imagesequencesrc/Makefile
 gst/siren/Makefile
 gst/smooth/Makefile
 gst/speed/Makefile

@@ -54,6 +54,8 @@ else
 check_faac =
 endif
 
+check_imagesequence = elements/imagesequence
+
 if USE_FAAD
 check_faad = elements/faad
 else
@@ -242,6 +244,7 @@ check_PROGRAMS = \
 	$(check_assrender) \
 	$(check_dash) \
 	$(check_faac)  \
+        $(check_imagesequence) \
 	$(check_faad)  \
 	$(check_voaacenc) \
 	$(check_voamrwbenc) \
@@ -416,6 +419,14 @@ elements_faac_CFLAGS = \
 elements_faac_LDADD = \
 	$(GST_PLUGINS_BASE_LIBS) $(GST_BASE_LIBS) $(GST_LIBS) $(LDADD) \
 	$(GST_AUDIO_LIBS)
+
+elements_imagesequence_CFLAGS = \
+        $(GIO_CFLAGS) \
+	$(GST_PLUGINS_BASE_CFLAGS) \
+	$(GST_BASE_CFLAGS) $(GST_CFLAGS) $(AM_CFLAGS)
+elements_imagesequence_LDADD = \
+        $(GIO_LIBS) \
+	$(GST_PLUGINS_BASE_LIBS) $(GST_BASE_LIBS) $(GST_LIBS) $(LDADD)
 
 elements_gdppay_CFLAGS = \
 	$(GST_PLUGINS_BASE_CFLAGS) $(GST_BASE_CFLAGS) $(GST_CFLAGS) $(AM_CFLAGS)
