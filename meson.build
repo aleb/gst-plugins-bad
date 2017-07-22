@@ -145,6 +145,7 @@ check_functions = [
 # check token HAVE_GME
   ['HAVE_GMTIME_R', 'gmtime_r'],
 # check token HAVE_GRAPHENE
+# check token HAVE_GROK
 # check token HAVE_GSETTINGS
 # check token HAVE_GSM
 # check token HAVE_GUDEV

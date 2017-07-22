@@ -2863,6 +2863,23 @@ AG_GST_CHECK_FEATURE(OPENJPEG, [openjpeg library], openjpeg, [
   AC_SUBST(OPENJPEG_LIBS)
 ])
 
+
+dnl *** Grok ***
+translit(dnm, m, l) AM_CONDITIONAL(USE_GROK, true)
+AG_GST_CHECK_FEATURE(GROK, [Grok library], grokjpeg2000, [
+  HAVE_GROK="no"
+  AG_GST_PKG_CHECK_MODULES(GROK, libopenjp2 >= 2.0)
+  if test x"$HAVE_GROK" = x"yes"; then
+    dnl minor API changes in v2.1
+    AG_GST_PKG_CHECK_MODULES(GROK_2_1, libopenjp2 >= 2.1)
+    if test x"$HAVE_GROK" = x"yes"; then
+      AC_DEFINE([HAVE_GROK_2_1], 1, [Define if Grok 2.1 is used])
+    fi
+  fi
+  AC_SUBST(OPENJPEG_CFLAGS)
+  AC_SUBST(OPENJPEG_LIBS)
+])
+
 dnl *** OpenMPT ***
 translit(dnm, m, l) AM_CONDITIONAL(USE_OPENMPT, true)
 AG_GST_CHECK_FEATURE(OPENMPT, openmpt, openmpt, [
@@ -3421,6 +3438,7 @@ AM_CONDITIONAL(USE_FDK_AAC, false)
 AM_CONDITIONAL(USE_FLITE, false)
 AM_CONDITIONAL(USE_FLUIDSYNTH, false)
 AM_CONDITIONAL(USE_GL, false)
+AM_CONDITIONAL(USE_GROK, false)
 AM_CONDITIONAL(USE_GSM, false)
 AM_CONDITIONAL(USE_GTK3, false)
 AM_CONDITIONAL(USE_GTK3_GL, false)
@@ -3720,6 +3738,7 @@ ext/wayland/Makefile
 ext/daala/Makefile
 ext/dts/Makefile
 ext/gl/Makefile
+ext/grokjpeg2000/Makefile
 ext/gtk/Makefile
 ext/faac/Makefile
 ext/faad/Makefile

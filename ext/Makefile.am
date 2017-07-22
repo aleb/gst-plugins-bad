@@ -130,6 +130,13 @@ endif
 G729_DIR=
 #endif
 
+if USE_GROK
+GROK_DIR = grokjpeg2000
+else
+GROK_DIR =
+endif
+
+
 if USE_GSM
 GSM_DIR=gsm
 else
@@ -418,6 +425,7 @@ SUBDIRS=\
 	$(FDK_AAC_DIR) \
 	$(FLITE_DIR) \
 	$(FLUIDSYNTH_DIR) \
+	$(GROK_DIR) \
 	$(GSM_DIR) \
 	$(G729_DIR) \
 	$(IQA_DIR) \
